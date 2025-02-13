@@ -8,26 +8,6 @@ app.use(express.json());
 
 const API_KEY = process.env.API_KEY;
 
-// let client;
-// const initializeDBAndServer = async () => {
-//   const uri = process.env.MONGO_URI;
-
-//   client = new MongoClient(uri);
-
-//   try {
-//     await client.connect();
-//     console.log("Connected to MongoDB.....");
-//     app.listen(3000, () => {
-//       console.log("Server running on port: 3000");
-//     });
-//   } catch (error) {
-//     console.error("Error connecting to MongoDB:", error);
-//     process.exit(1);
-//   }
-// };
-
-// initializeDBAndServer();
-
 const getExchangeRates = async (base = "USD") => {
   const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${base}`;
   const response = await axios.get(url);
